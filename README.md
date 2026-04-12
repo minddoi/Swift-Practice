@@ -23,7 +23,7 @@ Apple Develop in Swift Tutorials 학습 기록 레포지토리입니다. <br>
 | Chapter | Topic | Tutorial | Code |
 |---------|-------|----------|------|
 | 6 | Custom types and Swift Testing | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/welcome-to-data-modeling) | [ScoreKeeper](DataModeling/ScoreKeeper) |
-| 7 | Models and persistence | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/save-data) | |
+| 7 | Models and persistence | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/save-data) |[Birthdays](DataModeling/Birthdays)|
 | 8 | Navigation, editing, and relationships | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/navigate-sample-data) | |
 | 9 | Observation and shareable data models | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/complete-a-game-with-logic) | |
 

@@ -19,6 +19,15 @@ class SampleData {
         modelContainer.mainContext
     }
     
+    // ! <- 강제 언래핑 - 무조건 데이터가 있다고 확신할 수 있을 떄 사용
+    var friend: Friend {
+        Friend.sampleData.first!
+    }
+    
+    var movie: Movie {
+        Movie.sampleData.first!
+    }
+    
     //추가 생성 막음
     private init () {
         //이 DB에 어떤 모델들을 넣을지 정의하는 목록 (여러 개 동시에)

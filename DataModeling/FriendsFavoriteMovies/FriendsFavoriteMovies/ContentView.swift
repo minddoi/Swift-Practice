@@ -15,7 +15,7 @@ struct ContentView: View {
                 FriendList()
             }
             Tab("Movies", systemImage: "film.stack") {
-                MovieList()
+                FilteredMovieList()
             }
         }
     }

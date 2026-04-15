@@ -17,6 +17,8 @@ struct FriendDetail: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
     
+    @Query(sort: \Movie.title) private var movies: [Movie]
+    
     init(friend: Friend, isNew: Bool = false) {
         self.friend = friend
         self.isNew = isNew
@@ -26,6 +28,17 @@ struct FriendDetail: View {
         Form {
             TextField("Name", text: $friend.name)
                 .autocorrectionDisabled() //자동완성 off
+            
+            Picker("Favorite Movie", selection: $friend.favoriteMovie) {
+                Text("None")
+                    .tag(nil as Movie?) //nil은 그냥 쓰면 타입 없으므로 타입 명시 해줘야함
+                
+                ForEach(movies) { movie in
+                    Text(movie.title)
+                        .tag(movie)
+                }
+            }
+            .datePickerStyle(.graphical)
         }
         .navigationTitle(isNew ? "New Friend" : "Friend")
         .navigationBarTitleDisplayMode(.inline)
@@ -51,10 +64,12 @@ struct FriendDetail: View {
     NavigationStack {
         FriendDetail(friend: SampleData.shared.friend)
     }
+    .modelContainer(SampleData.shared.modelContainer)
 }
 
 #Preview("New Friend") {
     NavigationStack {
         FriendDetail(friend: SampleData.shared.friend, isNew: true)
     }
+    .modelContainer(SampleData.shared.modelContainer)
 }

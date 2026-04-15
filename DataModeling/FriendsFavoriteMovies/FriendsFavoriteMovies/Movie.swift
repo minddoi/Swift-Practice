@@ -13,6 +13,9 @@ class Movie {
     var title: String
     var releaseDate: Date
     
+    //var a: [Friend] = []랑 같은 의미로 빈 Friend 배열 생성
+    var favoritedBy = [Friend]()
+    
     init(title: String, releaseDate: Date) {
         self.title = title
         self.releaseDate = releaseDate

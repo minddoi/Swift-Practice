@@ -11,6 +11,7 @@ import SwiftData
 @Model
 class Friend {
     var name: String
+    var favoriteMovie : Movie?
     
     //객체를 “사용 가능한 상태”로 만드는 과정
     init(name: String) {

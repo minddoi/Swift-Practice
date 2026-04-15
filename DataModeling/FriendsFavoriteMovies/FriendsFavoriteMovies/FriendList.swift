@@ -15,31 +15,36 @@ struct FriendList: View {
     @State private var newFriend: Friend?
     
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(friends) { friend in
-                    NavigationLink(friend.name) {
-                        FriendDetail(friend: friend)
+        NavigationSplitView{
+            Group {
+                if !friends.isEmpty {
+                    List {
+                        ForEach(friends) { friend in
+                            NavigationLink(friend.name) {
+                                FriendDetail(friend: friend)
+                            }
+                        }
+                        .onDelete(perform: deleteFriends(indexes:))
                     }
-                }
-                .onDelete(perform: deleteFriends(indexes:))
-            }
-            .navigationTitle("Friends")
-            .toolbar {
-                ToolbarItem {
-                    Button("Add friend", systemImage: "plus", action: addFriend)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    EditButton()
+                } else {
+                    ContentUnavailableView("Add Friends", systemImage: "person.and.person")
                 }
             }
-            .sheet(item: $newFriend) { friend in
-                NavigationStack {
-                    FriendDetail(friend: friend, isNew: true)
-                }
-                .interactiveDismissDisabled() //아래로 드래그해서 닫기 막기
-            }
-            
+                    .navigationTitle("Friends")
+                    .toolbar {
+                        ToolbarItem {
+                            Button("Add friend", systemImage: "plus", action: addFriend)
+                        }
+                        ToolbarItem(placement: .topBarTrailing) {
+                            EditButton()
+                        }
+                    }
+                    .sheet(item: $newFriend) { friend in
+                        NavigationStack {
+                            FriendDetail(friend: friend, isNew: true)
+                        }
+                        .interactiveDismissDisabled() //아래로 드래그해서 닫기 막기
+                    }
         } detail: {
             Text("Select a friend")
                 .navigationTitle("Friend")
@@ -64,4 +69,9 @@ struct FriendList: View {
 #Preview {
     FriendList()
         .modelContainer(SampleData.shared.modelContainer)
+}
+
+#Preview("Empty List") {
+    FriendList()
+        .modelContainer(for: Friend.self, inMemory: true)
 }

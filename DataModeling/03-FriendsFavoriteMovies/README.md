@@ -1,12 +1,6 @@
 ## 스위프트 스터디
 ### Data Modeling
 
-- ModelContainer(데이터 저장소)
-- ModelContext (데이터 조작 통로)
-- @Query (데이터 읽기)
-
----
-
 ### Ch3-1 과제 캡쳐본
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
@@ -32,3 +26,9 @@
   <img src="https://github.com/user-attachments/assets/66a9bcf4-d53b-4df8-ada9-867856a6009c" width="250" />
   <img src="https://github.com/user-attachments/assets/7f1a486d-1ad2-4cd4-a17f-12d0558967e1" width="250" />
 </div>
+
+---
+
+- ModelContainer(데이터 저장소)
+- ModelContext (데이터 조작 통로)
+- @Query (데이터 읽기)

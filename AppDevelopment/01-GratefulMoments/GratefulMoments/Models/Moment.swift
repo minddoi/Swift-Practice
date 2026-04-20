@@ -14,13 +14,13 @@ class Moment {
     var title: String
     var note: String
     var imageData: Data?
-    var timestampt: Date
+    var timestamp: Date
     
-    init(title: String, note: String, imageData: Data? = nil, timestampt: Date = .now) {
+    init(title: String, note: String, imageData: Data? = nil, timestamp: Date = .now) {
         self.title = title
         self.note = note
         self.imageData = imageData
-        self.timestampt = timestampt
+        self.timestamp = timestamp
     }
     
     var image: UIImage? {

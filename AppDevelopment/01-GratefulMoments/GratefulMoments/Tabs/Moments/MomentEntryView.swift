@@ -50,7 +50,7 @@ struct MomentEntryView: View {
                             title: title,
                             note: note,
                             imageData: imageData,
-                            timestampt: .now
+                            timestamp: .now
                         )
                         dataContainer.context.insert(newMoment)
                         do {

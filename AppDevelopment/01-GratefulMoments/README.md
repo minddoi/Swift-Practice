@@ -31,5 +31,31 @@
 
 ---
 
-#### 🔹 타이틀
-- 내용
+#### 🔹 SwiftUI 상태 기반 구조
+- 상태가 바뀌면 UI가 자동으로 업데이트됨  
+- 흐름: `사용자 입력 → 상태 변경 → UI 반응`
+
+#### 🔹 Environment & 데이터 공유
+- `.environment()`로 데이터를 여러 View에서 공유  
+- View 간 의존성을 줄이고 구조 단순화
+
+#### 🔹 비동기 처리
+- `Task`, `await`로 UI를 멈추지 않고 작업 처리  
+- UI 상태 변경은 `@MainActor`에서 실행
+
+#### 🔹 커스텀 View (@ViewBuilder)
+- 여러 View를 하나의 컴포넌트에 전달 가능  
+- 재사용 가능한 UI 구조 설계
+
+#### 🔹 데이터 처리 핵심
+- `zip` → 두 배열 동시 처리  
+- `sorted` → 정렬  
+- `FetchDescriptor` → SwiftData 조회 조건
+
+#### 🔹 상태 기반 UI 제어
+- 상태값으로 UI 변화 (ex. 카드 뒤집기)
+- `onChange`로 상태 변화에 따른 UI 반응 처리
+
+#### 🔹 핵심 설계 개념
+- 로직은 Model, 표현은 View  
+- 의존성은 한 곳(DataContainer)에서 관리

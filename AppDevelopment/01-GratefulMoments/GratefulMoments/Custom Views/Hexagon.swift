@@ -31,6 +31,7 @@ struct Hexagon<Content: View>: View {
                 .aspectRatio(contentMode: .fit)
             // hexagon 테두리 보이게 하기 위해서 그만큼만 자체 크기 줄이기
                 .frame(width: layout.size - borderWidth, height: layout.size - borderWidth)
+                .fontWeight(.ultraLight)
         }
         .background {
             Image(systemName: "hexagon")
@@ -38,8 +39,14 @@ struct Hexagon<Content: View>: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: layout.size, height: layout.size)
                 .foregroundStyle(borderColor)
+                .fontWeight(.ultraLight)
         }
         .frame(width: layout.size, height: layout.size)
+        .overlay(alignment: .topTrailing) {
+            if let moment {
+                HexagonAccessoryView(moment: moment, hexagonLayout: layout)
+            }
+        }
     }
 }
 

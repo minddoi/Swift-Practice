@@ -13,6 +13,7 @@ import SwiftUI
 @MainActor
 class DataContainer {
     let modelContainer: ModelContainer
+    var badgeManager: BadgeManager
     
     var context: ModelContext {
         modelContainer.mainContext
@@ -22,15 +23,20 @@ class DataContainer {
         // 이 앱에서 저장할 데이터 구조는 Moment
         let schema = Schema([
             Moment.self,
+            Badge.self,
         ])
         
         let modelCofiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: includeSampleMoments)
         
         do {
             modelContainer = try ModelContainer(for: schema, configurations: [modelCofiguration])
+            badgeManager = BadgeManager(modelContainer: modelContainer)
+            
+            //
+            try badgeManager.loadBadgesIfNeeded()
             
             if includeSampleMoments {
-                loadSampleMoments()
+                try loadSampleMoments()
             }
             try context.save()
         } catch {
@@ -38,9 +44,10 @@ class DataContainer {
         }
     }
     
-    private func loadSampleMoments() {
+    private func loadSampleMoments() throws{
         for moment in Moment.sampleData {
             context.insert(moment)
+            try badgeManager.unlockBadges(newMoment: moment)
         }
     }
 }

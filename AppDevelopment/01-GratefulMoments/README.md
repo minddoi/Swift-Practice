@@ -21,5 +21,15 @@
 
 ---
 
+### Ch2 과제 캡쳐본
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+  <img src="https://github.com/user-attachments/assets/56adf12a-5227-4001-a61e-0aadf6841147" width="250" />
+  <img src="https://github.com/user-attachments/assets/d97a6fcd-9cd8-41cd-8400-8f81ea106228" width="250" />
+  <img src="https://github.com/user-attachments/assets/9dcdaeea-79ce-4958-8ceb-9f055711a435" width="250" />
+</div>
+
+---
+
 #### 🔹 타이틀
 - 내용

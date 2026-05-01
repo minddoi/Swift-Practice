@@ -31,7 +31,9 @@ struct UnlockedBadgesView: View {
                 }
             }
             .padding()
-            .frame(width: 210, height: 225)
+            .frame(width: 210)
+            .frame(minHeight: 225)
+            .fixedSize() // 콘텐츠 크기만큼만
             .multilineTextAlignment(.leading)
             .foregroundStyle(.white)
             .background(badge.details.color.opacity(0.8))

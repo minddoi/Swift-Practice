@@ -26,6 +26,8 @@ struct AchievementsView: View {
             }
             .navigationTitle("Achievements")
         }
+        // 글자 크기를 XXX Large까지만 키우겠다는 설정
+        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
     }
     
     private var contentStack: some View {
